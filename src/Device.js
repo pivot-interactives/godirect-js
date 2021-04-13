@@ -113,7 +113,7 @@ export default class Device extends EventEmitter {
    * @name start
    * @param {number} period
    */
-  start(period = null) {
+  async start(period = null) {
     let enabledSensors = this.sensors.filter(s => s.enabled);
 
     // And make sure at least one sensor is enabled.
@@ -130,15 +130,15 @@ export default class Device extends EventEmitter {
       this.measurementPeriod = period;
     }
 
-    this._startMeasurements();
+    await this._startMeasurements();
   }
 
   /**
    * Stop measurements on the device.
    * @name stop
    */
-  stop() {
-    this._stopMeasurements();
+  async stop() {
+    await this._stopMeasurements();
   }
 
   /**

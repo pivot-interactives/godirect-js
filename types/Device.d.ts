@@ -49,12 +49,12 @@ export default class Device extends EventEmitter {
      * @name start
      * @param {number} period
      */
-    start(period?: number): void;
+    start(period?: number): Promise<void>;
     /**
      * Stop measurements on the device.
      * @name stop
      */
-    stop(): void;
+    stop(): Promise<void>;
     /**
      * Based on a number return the sensor.
      * @name getSensor
