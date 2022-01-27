@@ -397,7 +397,7 @@ export default class Device extends EventEmitter {
       });
       setTimeout(() => {
         this.writeQueue = this.writeQueue.filter(
-          q => q.command === command[4] && q.rollingCounter !== command[2],
+          q => q.command !== command[4] || q.rollingCounter !== command[2],
         );
         reject(
           new Error(
